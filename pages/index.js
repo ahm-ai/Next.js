@@ -1,4 +1,5 @@
-import Head from 'next/head'
+import Head from 'next/head';
+import Navigation from '../components/Navigation';
 
 export default function Home() {
   return (
@@ -7,6 +8,8 @@ export default function Home() {
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
+      <Navigation />
 
       <main>
         <h1 className="title">
@@ -205,5 +208,5 @@ export default function Home() {
         }
       `}</style>
     </div>
-  )
+  );
 }

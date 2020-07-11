@@ -1,0 +1,3 @@
+myNextApplication:
+    # component: "serverless-next.js"
+    component: "serverless-next.js@1.9.5"
