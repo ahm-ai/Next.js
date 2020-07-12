@@ -5,8 +5,12 @@ export default function Navigation() {
     <nav>
       <ul>
         <li>
-          <Link href="/">Home</Link>
-          <Link href="/about">About</Link>
+          <Link href="/">
+            <a>Home</a>
+          </Link>
+          <Link href="/about">
+            <a>About</a>
+          </Link>
         </li>
       </ul>
     </nav>
