@@ -4,16 +4,9 @@ import PreviewCard from '../components/PreviewCard';
 import { useRouter } from 'next/router';
 
 const About = ({ posts }) => {
-  // console.warn(posts);
+  console.warn(posts);
 
-  const [properties, setstate] = useState([posts]);
-
-  useEffect(() => {}, []);
-
-  // console.warn('=>', properties);
-
-  // const { pathname, events } = useRouter();
-  // console.warn(pathname);
+  const [properties, setstate] = useState(posts);
 
   const handleChange = (e) => {
     // setstate([...properties, { name: e.target.value }]);
@@ -25,7 +18,7 @@ const About = ({ posts }) => {
       <div className="container">
         {properties &&
           properties.map((property) => (
-            <div key={property.id}>{property.value}</div>
+            <div key={property.id}>{property.body}</div>
           ))}
       </div>
 
@@ -35,17 +28,26 @@ const About = ({ posts }) => {
   );
 };
 
-About.getInitialProps = async (ctx) => {
-  const res = await fetch('https://api.chucknorris.io/jokes/random');
+// export async function getServerSideProps({ req }) {
+//   console.warn(req);
+//   const res = await fetch('https://api.chucknorris.io/jokes/random');
+//   const posts = await res.json();
 
-  // console.warn('PATH_NAME', ctx.pathname);
+//   return {
+//     props: {
+//       posts,
+//     },
+//   };
+// }
+
+About.getInitialProps = async (ctx) => {
+  const res = await fetch('https://jsonplaceholder.typicode.com/posts');
+
+  console.warn('PATH_NAME', ctx.pathname);
+
   const posts = await res.json();
 
-  return {
-    posts,
-  };
-
-  // return { stars: json.stargazers_count };
+  return { posts };
 };
 
 export default About;
