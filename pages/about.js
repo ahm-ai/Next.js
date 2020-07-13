@@ -4,7 +4,7 @@ import PreviewCard from '../components/PreviewCard';
 import { useRouter } from 'next/router';
 
 const About = ({ posts }) => {
-  console.warn(posts);
+  // console.warn(posts);
 
   const [properties, setstate] = useState(posts);
 

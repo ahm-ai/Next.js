@@ -11,6 +11,9 @@ export default function Navigation() {
           <Link href="/about">
             <a>About</a>
           </Link>
+          <Link href="/auth">
+            <a>Auth</a>
+          </Link>
         </li>
       </ul>
     </nav>
