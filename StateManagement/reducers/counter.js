@@ -1,5 +1,7 @@
 
-const counterReducer = (state = initialState, action) => {
+
+
+const counterReducer = (state , action) => {
     switch (action.type) {
       case 'TICK':
         return {

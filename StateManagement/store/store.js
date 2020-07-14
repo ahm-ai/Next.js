@@ -3,24 +3,26 @@ import { createStore, applyMiddleware } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 
 import counterReducer from '../reducers/counter'
-import rootReducer from '../reducers'
+
 
 let store
 
-const initialState = {
-  light: false,
+const init = {
+  // light: false,
   count: 0,
 }
 
-function initStore(preloadedState = initialState) {
+function initStore(preloadedState = init) {
+
+  
   return createStore(
-    rootReducer,
+    counterReducer,
     preloadedState,
     composeWithDevTools(applyMiddleware())
   )
 }
 
-export const initializeStore = (preloadedState) => {
+export const initializeStore = (preloadedState ) => {
   let _store = store ?? initStore(preloadedState)
 
   // After navigating to a page with an initial Redux state, merge that state
@@ -40,6 +42,7 @@ export const initializeStore = (preloadedState) => {
 }
 
 export function useStore(initialState) {
+
   const store = useMemo(() => initializeStore(initialState), [initialState])
   return store
 }

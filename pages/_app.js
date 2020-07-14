@@ -1,5 +1,5 @@
 import { Provider } from 'react-redux'
-import { useStore } from '../store/store'
+import { useStore } from '../StateManagement/store/store'
 import '../styles/index.css';
 
 export default function App({ Component, pageProps }) {
