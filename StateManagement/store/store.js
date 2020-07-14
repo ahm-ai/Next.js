@@ -7,11 +7,9 @@ import counterReducer from '../reducers/counter'
 let store
 
 const initialState = {
-  lastUpdate: 0,
   light: false,
   count: 0,
 }
-
 
 function initStore(preloadedState = initialState) {
   return createStore(
