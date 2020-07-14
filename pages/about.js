@@ -2,9 +2,14 @@ import Navigation from '../components/Navigation';
 import { useState, useEffect } from 'react';
 import PreviewCard from '../components/PreviewCard';
 import { useRouter } from 'next/router';
+import { useSelector } from 'react-redux';
+
+
 
 const About = ({ posts }) => {
   // console.warn(posts);
+
+  const count = useSelector((state) => state.count)
 
   const [properties, setstate] = useState(posts);
 
@@ -16,6 +21,10 @@ const About = ({ posts }) => {
     <>
       <Navigation />
       <div className="container">
+        <span>
+          {count}
+        </span>
+
         {properties &&
           properties.map((property) => (
             <div key={property.id}>{property.body}</div>

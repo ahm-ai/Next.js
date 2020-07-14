@@ -1,13 +1,43 @@
 import Head from 'next/head';
 import Navigation from '../components/Navigation';
 
+import { useSelector, useDispatch } from 'react-redux'
+
+const useCounter = () => {
+  const count = useSelector((state) => state.count)
+  const dispatch = useDispatch()
+  const increment = () =>
+    dispatch({
+      type: 'INCREMENT',
+    })
+  const decrement = () =>
+    dispatch({
+      type: 'DECREMENT',
+    })
+  const reset = () =>
+    dispatch({
+      type: 'RESET',
+    })
+  return { count, increment, decrement, reset }
+}
+
+
 export default function Home() {
+
+  const { count, increment, decrement, reset } = useCounter()
+
+
   return (
     <div className="container">
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      {count}
+
+      <button onClick={increment}>+1</button>
+      <button onClick={decrement}>-1</button>
+      <button onClick={reset}>Reset</button>
 
       <Navigation />
 
