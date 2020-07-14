@@ -3,6 +3,7 @@ import { createStore, applyMiddleware } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 
 import counterReducer from '../reducers/counter'
+import rootReducer from '../reducers'
 
 let store
 
@@ -13,7 +14,7 @@ const initialState = {
 
 function initStore(preloadedState = initialState) {
   return createStore(
-    counterReducer,
+    rootReducer,
     preloadedState,
     composeWithDevTools(applyMiddleware())
   )

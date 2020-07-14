@@ -1,14 +1,22 @@
-export const INCREMENT_COUNTER = "INCREMENT_COUNTER";
-export const DECREMENT_COUNTER = "DECREMENT_COUNTER";
+import { useSelector, useDispatch } from 'react-redux'
 
+export const useCounter = () => {
 
-//Action Creator
-export const incrementCounter = () => ({
-   type: INCREMENT_COUNTER
-});
+    const count = useSelector((state) => state.count)
+    const dispatch = useDispatch();
 
-export const decrementCounter = () => ({
-    type: DECREMENT_COUNTER
-});
-
-
+    const increment = () =>
+      dispatch({
+        type: 'INCREMENT',
+      })
+    const decrement = () =>
+      dispatch({
+        type: 'DECREMENT',
+      })
+    const reset = () =>
+      dispatch({
+        type: 'RESET',
+      })
+      
+    return { count, increment, decrement, reset }
+  }

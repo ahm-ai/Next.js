@@ -1,25 +1,6 @@
 import Head from 'next/head';
 import Navigation from '../components/Navigation';
-
-import { useSelector, useDispatch } from 'react-redux'
-
-const useCounter = () => {
-  const count = useSelector((state) => state.count)
-  const dispatch = useDispatch()
-  const increment = () =>
-    dispatch({
-      type: 'INCREMENT',
-    })
-  const decrement = () =>
-    dispatch({
-      type: 'DECREMENT',
-    })
-  const reset = () =>
-    dispatch({
-      type: 'RESET',
-    })
-  return { count, increment, decrement, reset }
-}
+import {useCounter} from "../StateManagement/actions/counterActions";
 
 
 export default function Home() {
